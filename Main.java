@@ -79,8 +79,8 @@ public class Main extends Application {
         if (files != null) {
             for (File file : files) {
                 if (file.isFile()) {
-                    if (containsPhrase(file, searchPhrase)) {
-                        results.append(file.getName()).append("\n");
+                    if (file.getName().contains(searchPhrase) || containsPhrase(file, searchPhrase)) {
+                        results.append(file.getAbsolutePath()).append("\n");
                     }
                 } else if (file.isDirectory()) {
                     searchInDirectory(file, results, searchPhrase);
